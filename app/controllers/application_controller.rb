@@ -17,4 +17,6 @@ class ApplicationController < ActionController::Base
   def current_user
     @user ||=User.find(session[:current_user]) if session[:current_user]
   end
+  
+  helper_method :current_user, :current_room
 end

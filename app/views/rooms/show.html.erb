@@ -1,7 +1,7 @@
 
 <%= render "shared/nav" %>
 <div id="chat-container">
-    <header>One</header>
+    <header>O<%= current_room.name %></header>
     <div id="chat-box">
     <% @messages.each do |msg| %>
         <div class="row">
