@@ -11,6 +11,6 @@ generate
 rails g model user name:string email:string password_digest:string
 rails g model room name:string
 rails g model message user:references room:references content
-bundle exec rails db:migrate
+bundle exec rails db:migrate  #still use rake db:migrate
 rails s
 ```
