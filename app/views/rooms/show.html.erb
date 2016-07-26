@@ -2,12 +2,9 @@
 <%= render "shared/nav" %>
 <div id="chat-container">
     <header>O<%= current_room.name %></header>
-    <div id="chat-box">
+    <div id="chat-box" data-channel="rooms" data-room-id=<%= current_room.id %>>
     <% @messages.each do |msg| %>
-        <div class="row">
-            <p><%= msg.content %></p>
-            <span><%= msg.user.name %></span>
-        </div>
+        <%= render partial: "shared/message", locals: {msg: msg} %>
     <% end %>
     </div>
     
