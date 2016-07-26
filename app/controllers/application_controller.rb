@@ -3,11 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
+  before_action :authenticate
+  
+  private
+  def authenticate
+    redirect_to login_url unless current_user
+  end
+  
   private
   def current_room
-    @room ||=Room.first
+    @room ||=Room.find(session[:current_room]) if session[:current_room]
   end
   def current_user
-    @user ||=User.first
+    @user ||=User.find(session[:current_user]) if session[:current_user]
   end
 end

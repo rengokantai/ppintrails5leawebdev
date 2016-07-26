@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'rooms#index'
   resources :messages, only: [:create]
   resources :rooms, only: [:index, :show]
+  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
