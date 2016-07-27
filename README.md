@@ -14,3 +14,13 @@ rails g model message user:references room:references content
 bundle exec rails db:migrate  #still use rake db:migrate
 rails s
 ```
+
+######Navigating
+db/seeds.rb
+```
+rooms = Room.create([{name: "one"},{name:"two"}])
+```
+then
+```
+rake db:seed
+```
